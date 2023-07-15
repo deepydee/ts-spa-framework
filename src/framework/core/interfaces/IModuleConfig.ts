@@ -1,5 +1,6 @@
 import { Component } from "../component";
 
 export interface IModuleConfig {
-    components: Component[]
+    components: Component[],
+    bootstrap: Component
 }

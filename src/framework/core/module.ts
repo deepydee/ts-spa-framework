@@ -4,9 +4,11 @@ import { IModuleConfig } from "./interfaces/IModuleConfig";
 
 abstract class Module implements IModule {
     public components: Component[];
+    public bootstrap: Component;
 
     constructor(config: IModuleConfig) {
         this.components = config.components;
+        this.bootstrap = config.bootstrap;
     }
 
     public start(): void {
@@ -14,6 +16,7 @@ abstract class Module implements IModule {
     }
 
     #initComponents() {
+        this.bootstrap.render();
         this.components.forEach((component) => component.render());
     }
 }

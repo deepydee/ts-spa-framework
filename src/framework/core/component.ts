@@ -5,6 +5,7 @@ import getElement from "./utils/getEment";
 abstract class Component implements IComponent {
     #template: string;
     #selector: string;
+    #element: HTMLElement = document.createElement('div');
 
     constructor(config: IComponentConfig) {
         this.#template = config.template;
@@ -12,8 +13,8 @@ abstract class Component implements IComponent {
     }
 
     render() {
-        const element = getElement<HTMLElement>(document, this.#selector);
-        element.innerHTML = this.#template;
+        this.#element = getElement<HTMLElement>(document, this.#selector);
+        this.#element.innerHTML = this.#template;
     }
 }
 

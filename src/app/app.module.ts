@@ -1,6 +1,7 @@
 import { IModuleConfig } from "../framework/core/interfaces/IModuleConfig";
 import { Module } from "../framework/core/module";
 import { appComponent } from "./app.component";
+import { appHeader } from "./common/app-header/app.header";
 
 class AppModule extends Module {
     constructor(config: IModuleConfig) {
@@ -10,6 +11,7 @@ class AppModule extends Module {
 
 export const appModule = new AppModule({
     components: [
-        appComponent,
-    ]
+        appHeader,
+    ],
+    bootstrap: appComponent
 });
